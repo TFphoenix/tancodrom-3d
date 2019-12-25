@@ -2,5 +2,60 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Display.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.c">
+      <Filter>STB</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="obj_loader.cpp">
+      <Filter>OBJ Loader</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{ee7ce1ec-a5f9-4190-9e2e-591e3e888328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STB">
+      <UniqueIdentifier>{28a266b4-20e5-49c9-9616-a3faf39bbd5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ Loader">
+      <UniqueIdentifier>{dcbb0677-4279-4910-9860-ca0b684cf2a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Display.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>STB</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="obj_loader.h">
+      <Filter>OBJ Loader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
