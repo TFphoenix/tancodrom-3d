@@ -20,7 +20,7 @@ int main()
 	unsigned indices[] = { 0,1,2 };
 
 	Mesh mesh(vertecies, sizeof(vertecies) / sizeof(vertecies[0]), indices, sizeof(indices) / sizeof(indices[0]));
-	Mesh monkeyMesh("./resources/tank_1mesh.obj");
+	Mesh monkeyMesh("./resources/helicopter_blades.obj");
 	Shader shader("./resources/testShader");
 	Texture texture("./resources/bricks.jpg");
 	Camera camera(glm::vec3(0, 0, -10), 70.0f, static_cast<float>(WINDOW_WIDTH) / WINDOW_HEIGHT, 0.01f, 1000.0f);
