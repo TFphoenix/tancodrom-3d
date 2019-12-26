@@ -57,5 +57,8 @@
     <ClInclude Include="obj_loader.h">
       <Filter>OBJ Loader</Filter>
     </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

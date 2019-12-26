@@ -27,9 +27,13 @@ Display::Display(uint16_t width, uint16_t height, const std::string& title)
 	m_isClosed = false;
 
 	glEnable(GL_DEPTH_TEST);
-
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
+
+	// Timing
+	m_NOW = SDL_GetPerformanceCounter();
+	m_LAST = 0;
+	m_deltaTime = 0;
 }
 
 Display::~Display()
@@ -41,14 +45,52 @@ Display::~Display()
 
 void Display::Update()
 {
+	// Swap Window
 	SDL_GL_SwapWindow(m_window);
 
+	// per-frame Time Logic
+	m_LAST = m_NOW;
+	m_NOW = SDL_GetPerformanceCounter();
+	m_deltaTime = (m_NOW - m_LAST) * 1000 / static_cast<double>(SDL_GetPerformanceFrequency());
+
+	// Event Handling
 	SDL_Event e;
 	while (SDL_PollEvent(&e))
 	{
+		// Quit
 		if (e.type == SDL_QUIT)
 		{
 			m_isClosed = true;
+		}
+		// Keyboard
+		else if (e.type == SDL_KEYDOWN)
+		{
+			const float cameraSpeed = static_cast<float>(m_deltaTime) * pCamera->cameraSpeedFactor;
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_ESCAPE:
+				m_isClosed = true;
+				break;
+			case SDLK_w:
+				pCamera->MoveForward(cameraSpeed / 2);
+				break;
+			case SDLK_s:
+				pCamera->MoveForward(-cameraSpeed / 2);
+				break;
+			case SDLK_a:
+				pCamera->MoveRight(cameraSpeed / 2);
+				break;
+			case SDLK_d:
+				pCamera->MoveRight(-cameraSpeed / 2);
+				break;
+			default:
+				break;
+			}
+		}
+		// Mouse
+		else if (e.type == SDL_MOUSEMOTION)
+		{
+			pCamera->MouseControl(e.motion.x, e.motion.y);
 		}
 	}
 }
@@ -57,6 +99,11 @@ void Display::Clear(float red, float green, float blue, float alpha)
 {
 	glClearColor(red, green, blue, alpha);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void Display::SetCamera(Camera& camera)
+{
+	pCamera = &camera;
 }
 
 bool Display::IsClosed() const
