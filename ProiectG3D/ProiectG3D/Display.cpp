@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "Settings.h"
 
 #include <GL/glew.h>
 #include <iostream>
@@ -29,6 +30,10 @@ Display::Display(uint16_t width, uint16_t height, const std::string& title)
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
+
+	// Initialize mouse
+	SDL_WarpMouseInWindow(m_window, Settings::WindowWidth / 2, Settings::WindowHeight / 2);
+	SDL_ShowCursor(SDL_DISABLE);
 
 	// Timing
 	m_NOW = SDL_GetPerformanceCounter();
