@@ -21,32 +21,47 @@ int main()
 
 	// Meshes
 	Mesh terrainMesh(terrainVertices, sizeof(terrainVertices) / sizeof(terrainVertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
-	Mesh tankMesh("./resources/models/tank_full.obj");
+	Mesh tankMesh("./resources/models/TeoTank_base.obj");
+	Mesh turretMesh("./resources/models/TeoTank_turret.obj");
 	// Shaders
 	Shader basicShader("./resources/basicShader");
 	Shader lambertShader("./resources/LambertsLightShader");
 	// Textures
 	Texture grassTexture("./resources/textures/grass.jpg");
-	Texture tankTexture("./resources/textures/green.jpg");
+	Texture tankTexture("./resources/textures/green_camo.jpg");
 	// Camera & Transform
 	Camera camera(glm::vec3(0, 10, -10), 70.0f, static_cast<float>(Settings::WindowWidth) / Settings::WindowHeight, 0.01f, 1000.0f);
 	display.SetCamera(camera);
-	Transform transform;
+	// Transforms
+	Transform terrainTransform;
+	Transform tankTransform;
+	Transform turretTransform;
+	float rotation = 0.0f;
 
 	// Render loop
 	while (!display.IsClosed())
 	{
 		display.Clear(0.0f, 0.15f, 0.3f);
 
+		// Terrain
 		basicShader.Bind();
-		basicShader.Update(transform, camera);
+		basicShader.Update(terrainTransform, camera);
 		grassTexture.Bind(0);
 		terrainMesh.Draw();
 
+		// Tank
 		lambertShader.Bind();
-		lambertShader.Update(transform, camera);
+		lambertShader.Update(tankTransform, camera);
 		tankTexture.Bind(0);
 		tankMesh.Draw();
+
+		// Turret
+		lambertShader.Bind();
+		turretTransform.GetRotation().y = sinf(rotation);
+		lambertShader.Update(turretTransform, camera);
+		tankTexture.Bind(0);
+		turretMesh.Draw();
+		rotation += 0.01f;
 
 		display.Update();
 	}
