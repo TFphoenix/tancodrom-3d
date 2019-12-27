@@ -58,6 +58,26 @@ void Display::Update()
 	m_NOW = SDL_GetPerformanceCounter();
 	m_deltaTime = (m_NOW - m_LAST) * 1000 / static_cast<double>(SDL_GetPerformanceFrequency());
 
+	// Camera movement
+	const Uint8* keyState = SDL_GetKeyboardState(NULL);
+	const float cameraSpeed = static_cast<float>(m_deltaTime) * pCamera->cameraSpeedFactor;
+	if (keyState[SDL_SCANCODE_W])
+	{
+		pCamera->MoveForward(cameraSpeed);
+	}
+	else if (keyState[SDL_SCANCODE_S])
+	{
+		pCamera->MoveForward(-cameraSpeed);
+	}
+	if (keyState[SDL_SCANCODE_A])
+	{
+		pCamera->MoveRight(cameraSpeed);
+	}
+	else if (keyState[SDL_SCANCODE_D])
+	{
+		pCamera->MoveRight(-cameraSpeed);
+	}
+	
 	// Event Handling
 	SDL_Event e;
 	while (SDL_PollEvent(&e))
@@ -70,23 +90,10 @@ void Display::Update()
 		// Keyboard
 		else if (e.type == SDL_KEYDOWN)
 		{
-			const float cameraSpeed = static_cast<float>(m_deltaTime) * pCamera->cameraSpeedFactor;
 			switch (e.key.keysym.sym)
 			{
 			case SDLK_ESCAPE:
 				m_isClosed = true;
-				break;
-			case SDLK_w:
-				pCamera->MoveForward(cameraSpeed / 2);
-				break;
-			case SDLK_s:
-				pCamera->MoveForward(-cameraSpeed / 2);
-				break;
-			case SDLK_a:
-				pCamera->MoveRight(cameraSpeed / 2);
-				break;
-			case SDLK_d:
-				pCamera->MoveRight(-cameraSpeed / 2);
 				break;
 			default:
 				break;
@@ -96,6 +103,7 @@ void Display::Update()
 		else if (e.type == SDL_MOUSEMOTION)
 		{
 			pCamera->MouseControl(e.motion.x, e.motion.y);
+			SDL_WarpMouseInWindow(m_window, Settings::WindowWidth / 2, Settings::WindowHeight / 2);
 		}
 	}
 }

@@ -13,9 +13,6 @@ public:
 		this->forward = glm::vec3(0.0f, 0.0f, 1.0f);
 		this->up = glm::vec3(0.0f, 1.0f, 0.0f);
 		this->projection = glm::perspective(fov, aspect, zNear, zFar);
-
-		lastX = Settings::WindowWidth / 2.0f;
-		lastY = Settings::WindowHeight / 2.0f;
 	}
 
 	glm::mat4 GetViewProjection() const
@@ -53,12 +50,12 @@ public:
 
 	void MouseControl(float xPos, float yPos)
 	{
-		const float xChange = (xPos - lastX)*mouseSensitivity;
-		const float yChange = (yPos - lastY)*mouseSensitivity;
+		const int xMid = Settings::WindowWidth / 2;
+		const int yMid = Settings::WindowHeight / 2;
+		const float xChange = (xPos - xMid)*mouseSensitivity;
+		const float yChange = (yPos - yMid)*mouseSensitivity;
 
 		ProcessMouseMovement(xChange, yChange);
-		lastX = xPos;
-		lastY = yPos;
 	}
 
 private:
@@ -88,12 +85,12 @@ private:
 	}
 
 public:
-	const float cameraSpeedFactor = 2.5f;
+	// Camera movement sesnivity
+	const float cameraSpeedFactor = 0.1f;
 
 private:
-	// Mouse
+	// Mouse sesnivity
 	const float mouseSensitivity = 0.1f;
-	float lastX = 0.f, lastY = 0.f;
 	// Euler Angles
 	float yaw = 0.0f;
 	float pitch = 0.0f;
