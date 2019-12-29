@@ -1,0 +1,20 @@
+# Blender MTL File: 'tank_lowe_half.blend'
+# Material Count: 2
+
+newmtl None
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd C:\Users\Alex\Desktop\Grafica3D\Proiect 3d\ProiectG3D\ProiectG3D\resources\textures\green_camo.jpg
+
+newmtl None_green_metal.jpg
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd C:\Users\Alex\Desktop\Grafica3D\Proiect 3d\ProiectG3D\ProiectG3D\resources\textures\green_metal.jpg
