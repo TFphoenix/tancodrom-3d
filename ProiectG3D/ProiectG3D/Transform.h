@@ -25,12 +25,12 @@ public:
 	}
 
 	// G&S
-	glm::vec3& GetPosition(){ return m_position; }
-	glm::vec3& GetRotation(){ return m_rotation; }
-	glm::vec3& GetScale(){ return m_scale; }
+	glm::vec3& GetPosition() { return m_position; }
+	glm::vec3& GetRotation() { return m_rotation; }
+	glm::vec3& GetScale() { return m_scale; }
 	void SetPosition(const glm::vec3& position) { m_position = position; }
-	void SetRotation(const glm::vec3& position) { m_position = position; }
-	void SetScale(const glm::vec3& position) { m_position = position; }
+	void SetRotation(const glm::vec3& rotation) { m_rotation = rotation; }
+	void SetScale(const glm::vec3& scale) { m_scale = scale; }
 
 private:
 	glm::vec3 m_position;

@@ -24,7 +24,7 @@ inline Terrain::Terrain()
 
 	// Initialize Object
 	mesh = new Mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
-	shader = new Shader("./resources/basicShader");
+	shader = new Shader("./resources/shaders/basicShader");
 	texture = new Texture("./resources/textures/grass.jpg");
 }
 

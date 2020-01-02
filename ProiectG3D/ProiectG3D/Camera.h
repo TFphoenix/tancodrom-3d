@@ -86,7 +86,7 @@ private:
 
 public:
 	// Camera movement sesnivity
-	const float cameraSpeedFactor = 0.1f;
+	const float cameraSpeedFactor = 0.05f;
 
 private:
 	// Mouse sesnivity

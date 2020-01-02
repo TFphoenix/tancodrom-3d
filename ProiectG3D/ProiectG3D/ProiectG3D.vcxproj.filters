@@ -23,6 +23,9 @@
     <ClCompile Include="Tank.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="LightSource.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -36,6 +39,9 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{3175d945-3a09-4b5e-8709-df61657a79df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{ad288371-a250-4d83-9dcc-415638dbb90a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,5 +81,28 @@
     <ClInclude Include="Tank.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="LightSource.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\basicShader.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\basicShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\LambertsLightShader.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\LambertsLightShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\PhongLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\PhongLight.vs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

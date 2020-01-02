@@ -41,8 +41,8 @@ private:
 	};
 
 private:
-	GLuint m_vertexArrayObject;
-	GLuint m_vertexArrayBuffers[NUM_BUFFERS];
+	GLuint m_vertexArrayObject;// VAO
+	GLuint m_vertexArrayBuffers[NUM_BUFFERS];// VBO
 	unsigned m_drawCount;
 
 };

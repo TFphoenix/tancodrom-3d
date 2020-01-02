@@ -25,9 +25,10 @@ void Tank::Draw() const
 
 Tank::Base::Base()
 {
-	mesh = new Mesh("./resources/models/LowPolyTank1/Tank_body_low_poly.obj");
-	shader = new Shader("./resources/LambertsLightShader");
-	texture = new Texture("./resources/textures/green_camo.jpg");
+	mesh = new Mesh("./resources/models/LowPolyTank1/body.obj");
+	shader = new Shader("./resources/shaders/LambertsLightShader");
+	texture = new Texture("./resources/textures/green.jpg");
+	transform.GetPosition().y += 0.1f;
 }
 
 void Tank::Base::Update(const Camera& camera)
@@ -39,9 +40,10 @@ void Tank::Base::Update(const Camera& camera)
 
 Tank::Turret::Turret()
 {
-	mesh = new Mesh("./resources/models/LowPolyTank1/Low_Poly_turret.obj");
-	shader = new Shader("./resources/LambertsLightShader");
-	texture = new Texture("./resources/textures/green_metal.jpg");
+	mesh = new Mesh("./resources/models/LowPolyTank1/turret.obj");
+	shader = new Shader("./resources/shaders/LambertsLightShader");
+	texture = new Texture("./resources/textures/green.jpg");
+	transform.GetPosition().y += 0.2f;
 }
 
 void Tank::Turret::Update(const Camera& camera)
@@ -49,4 +51,5 @@ void Tank::Turret::Update(const Camera& camera)
 	shader->Bind();
 	shader->Update(transform, camera);
 	texture->Bind(0);
+	transform.GetRotation().y += 0.001f;
 }
