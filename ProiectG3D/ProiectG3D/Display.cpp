@@ -37,6 +37,9 @@ Display::Display(uint16_t width, uint16_t height, const std::string& title)
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 
+	// Blending
+	glEnable(GL_BLEND);
+
 	// Initialize mouse
 	SDL_WarpMouseInWindow(m_window, Settings::WindowWidth / 2, Settings::WindowHeight / 2);
 	SDL_ShowCursor(SDL_DISABLE);
@@ -83,7 +86,7 @@ void Display::Update()
 	{
 		pCamera->MoveRight(-cameraSpeed);
 	}
-	
+
 	// Event Handling
 	SDL_Event e;
 	while (SDL_PollEvent(&e))

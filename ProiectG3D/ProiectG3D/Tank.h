@@ -29,8 +29,18 @@ private:
 		void Update(const Camera& camera) override;
 	};
 
+	class Tracks :public Object
+	{
+	public:
+		Tracks();
+		friend Tank;
+
+		void Update(const Camera& camera) override;
+	};
+
 private:
 	Base m_base;
 	Turret m_turret;
+	Tracks m_tracks;
 
 };

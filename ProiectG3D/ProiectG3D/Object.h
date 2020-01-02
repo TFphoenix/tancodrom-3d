@@ -3,8 +3,16 @@
 #include "Shader.h"
 #include "Texture.h"
 
+// Friends
+class Helicopter;
+class Tank;
+
 class Object
 {
+private:
+	friend Helicopter;
+	friend Tank;
+
 public:
 	virtual void Update(const Camera& camera) = 0;
 	virtual void Draw() const { mesh->Draw(); }

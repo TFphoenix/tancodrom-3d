@@ -26,6 +26,7 @@
     <ClCompile Include="LightSource.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Helicopter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -84,6 +85,7 @@
     <ClInclude Include="LightSource.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Helicopter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">

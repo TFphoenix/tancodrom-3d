@@ -4,6 +4,7 @@
 
 #include "Terrain.h"
 #include "Tank.h"
+#include "Helicopter.h"
 
 int main()
 {
@@ -17,20 +18,24 @@ int main()
 	// Objects
 	Terrain terrain;
 	Tank tank;
+	Helicopter helicopter;
 
 	// Render loop
 	while (!display.IsClosed())
 	{
 		display.Clear(0.0f, 0.15f, 0.3f);
 
-		
+
 		// Terrain
 		terrain.UpdateThenDraw(camera);
 
 		// Tank
 		tank.UpdateThenDraw(camera);
 
-		
+		// Helicopter
+		helicopter.UpdateThenDraw(camera);
+
+
 		display.Update();
 	}
 
