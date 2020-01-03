@@ -58,6 +58,11 @@ public:
 		ProcessMouseMovement(xChange, yChange);
 	}
 
+	glm::vec3& GetPosition()
+	{
+		return pos;
+	}
+
 private:
 	void ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch = true)
 	{

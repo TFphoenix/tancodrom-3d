@@ -90,6 +90,9 @@
     <ClInclude Include="Helicopter.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="DepthMap.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">
@@ -108,6 +111,18 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="resources\shaders\PhongLight.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\ShadowMapping.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\ShadowMapping.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\ShadowMappingDepth.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="resources\shaders\ShadowMappingDepth.vs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
