@@ -4,7 +4,15 @@
 class Tank :public Object
 {
 public:
-	Tank();
+	enum Type
+	{
+		TURTLE,
+		CLASSIC,
+		DOUBLE
+	};
+
+public:
+	Tank(Type type = Type::CLASSIC, const Transform& transform = Transform());
 
 	void Update(const Camera& camera) override;
 	void Draw() const override;
@@ -14,7 +22,7 @@ private:
 	class Base :public Object
 	{
 	public:
-		Base();
+		Base(Type type, const Transform& transform);
 		friend Tank;
 
 		void Update(const Camera& camera) override;
@@ -23,7 +31,7 @@ private:
 	class Turret :public Object
 	{
 	public:
-		Turret();
+		Turret(Type type, const Transform& transform);
 		friend Tank;
 
 		void Update(const Camera& camera) override;
@@ -32,15 +40,25 @@ private:
 	class Tracks :public Object
 	{
 	public:
-		Tracks();
+		Tracks(Type type, const Transform& transform);
 		friend Tank;
 
 		void Update(const Camera& camera) override;
 	};
 
 private:
+	// File Paths
+	static const std::string s_turtleFile;
+	static const std::string s_classicFile;
+	static const std::string s_doubleFile;
+
+private:
+	// Components
 	Base m_base;
 	Turret m_turret;
 	Tracks m_tracks;
+
+	// Logic
+	Type m_type;
 
 };

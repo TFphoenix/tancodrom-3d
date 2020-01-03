@@ -17,7 +17,9 @@ int main()
 
 	// Objects
 	Terrain terrain;
-	Tank tank;
+	Tank tank1;
+	Tank tank2(Tank::DOUBLE, Transform(glm::vec3(20, 0, -20)));
+	Tank tank3(Tank::TURTLE, Transform(glm::vec3(-20, 0, -20)));
 	Helicopter helicopter;
 
 	// Render loop
@@ -29,8 +31,10 @@ int main()
 		// Terrain
 		terrain.UpdateThenDraw(camera);
 
-		// Tank
-		tank.UpdateThenDraw(camera);
+		// Tanks
+		tank1.UpdateThenDraw(camera);
+		tank2.UpdateThenDraw(camera);
+		tank3.UpdateThenDraw(camera);
 
 		// Helicopter
 		helicopter.UpdateThenDraw(camera);

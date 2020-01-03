@@ -8,6 +8,7 @@ class Terrain :public Object
 public:
 	Terrain();
 	void Update(const Camera& camera) override;
+	void Draw() const override;
 };
 
 inline Terrain::Terrain()
@@ -33,4 +34,12 @@ inline void Terrain::Update(const Camera& camera)
 	shader->Bind();
 	shader->Update(transform, camera);
 	texture->Bind(0);
+}
+
+inline void Terrain::Draw() const
+{
+	glCullFace(GL_FRONT);
+	mesh->Draw();
+	glCullFace(GL_BACK);
+	mesh->Draw();
 }

@@ -3,6 +3,6 @@
 class Settings
 {
 public:
-	const static int WindowWidth = 1024;
-	const static int WindowHeight = 740;
+	const static int WindowWidth = 1280;
+	const static int WindowHeight = 720;
 };

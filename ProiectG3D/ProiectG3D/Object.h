@@ -3,23 +3,20 @@
 #include "Shader.h"
 #include "Texture.h"
 
-// Friends
-class Helicopter;
-class Tank;
-
 class Object
 {
-private:
-	friend Helicopter;
-	friend Tank;
-
 public:
+	// Graphic
 	virtual void Update(const Camera& camera) = 0;
 	virtual void Draw() const { mesh->Draw(); }
 	virtual void UpdateThenDraw(const Camera& camera) { Update(camera); Draw(); }
 
+	// G&S
+	Transform& GetTransform() { return  transform; }
+
 protected:
-	Object() :mesh(nullptr), shader(nullptr), texture(nullptr) {};
+	// C&D
+	Object(const Transform& transform = Transform()) :mesh(nullptr), shader(nullptr), texture(nullptr), transform(transform) {};
 	virtual ~Object()
 	{
 		delete mesh;

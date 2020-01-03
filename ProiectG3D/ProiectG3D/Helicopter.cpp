@@ -14,8 +14,9 @@ Helicopter::Helicopter() :
 
 	for (auto& obj : m_components)
 	{
-		obj->transform.GetPosition().x += 20.0f;
-		obj->transform.GetPosition().y += 10.0f;
+		obj->GetTransform().GetPosition().x += 20.0f;
+		obj->GetTransform().GetPosition().y += 20.0f;
+		obj->GetTransform().GetScale() += 2.0f;
 	}
 }
 
@@ -47,7 +48,7 @@ Helicopter::Base::Base()
 {
 	mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_body_centered.obj");
 	shader = new Shader("./resources/shaders/LambertsLightShader");
-	texture = new Texture("./resources/textures/green_metal3.jpg");
+	texture = new Texture("./resources/textures/helicopter.jpg");
 }
 
 void Helicopter::Base::Update(const Camera& camera)
@@ -90,8 +91,8 @@ Helicopter::Blades::Blades(Type type) :m_type(type)
 		break;
 	case Type::Small:
 		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_tail_blades_centered.obj");
-		transform.GetPosition().z -= 7.47f;
-		transform.GetPosition().y += 3.7f;
+		transform.GetPosition().z -= 22.4f;
+		transform.GetPosition().y += 11.1f;
 		break;
 	default:
 		throw std::invalid_argument("Undefined Blades type");

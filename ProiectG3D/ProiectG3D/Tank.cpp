@@ -1,15 +1,25 @@
 #include "Tank.h"
 
-Tank::Tank()
+// File Paths
+const std::string Tank::s_turtleFile("FINAL/Turtle");
+const std::string Tank::s_classicFile("FINAL/Classic");
+const std::string Tank::s_doubleFile("FINAL/Double");
+
+Tank::Tank(Type type, const Transform& transform) :
+	Object(transform),
+	m_base(type, transform),
+	m_turret(type, transform),
+	m_tracks(type, transform),
+	m_type(type)
 {
-	// currently empty
+	// empty
 }
 
 void Tank::UpdateThenDraw(const Camera& camera)
 {
 	m_base.UpdateThenDraw(camera);
 	m_turret.UpdateThenDraw(camera);
-	//m_tracks.UpdateThenDraw(camera);
+	m_tracks.UpdateThenDraw(camera);
 }
 
 void Tank::Update(const Camera& camera)
@@ -26,11 +36,26 @@ void Tank::Draw() const
 	m_tracks.Draw();
 }
 
-Tank::Base::Base()
+Tank::Base::Base(Type type, const Transform& transform) :Object(transform)
 {
-	mesh = new Mesh("./resources/models/TeoTank/base.obj");
+	switch (type)
+	{
+	case TURTLE:
+		mesh = new Mesh("./resources/models/" + s_turtleFile + "/base.obj");
+		texture = new Texture("./resources/textures/green_metal3.jpg");
+		break;
+	case CLASSIC:
+		mesh = new Mesh("./resources/models/" + s_classicFile + "/base.obj");
+		texture = new Texture("./resources/textures/brown_metal.jpg");
+		break;
+	case DOUBLE:
+		mesh = new Mesh("./resources/models/" + s_doubleFile + "/base.obj");
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	default:
+		throw std::invalid_argument("Undefined tank type");
+	}
 	shader = new Shader("./resources/shaders/LambertsLightShader");
-	texture = new Texture("./resources/textures/green_camo.jpg");
 }
 
 void Tank::Base::Update(const Camera& camera)
@@ -40,11 +65,26 @@ void Tank::Base::Update(const Camera& camera)
 	texture->Bind(0);
 }
 
-Tank::Turret::Turret()
+Tank::Turret::Turret(Type type, const Transform& transform) :Object(transform)
 {
-	mesh = new Mesh("./resources/models/TeoTank/turret.obj");
+	switch (type)
+	{
+	case TURTLE:
+		mesh = new Mesh("./resources/models/" + s_turtleFile + "/turret.obj");
+		texture = new Texture("./resources/textures/green_metal3.jpg");
+		break;
+	case CLASSIC:
+		mesh = new Mesh("./resources/models/" + s_classicFile + "/turret.obj");
+		texture = new Texture("./resources/textures/brown_camo.jpeg");
+		break;
+	case DOUBLE:
+		mesh = new Mesh("./resources/models/" + s_doubleFile + "/turret.obj");
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	default:
+		throw std::invalid_argument("Undefined tank type");
+	}
 	shader = new Shader("./resources/shaders/LambertsLightShader");
-	texture = new Texture("./resources/textures/green_camo.jpg");
 }
 
 void Tank::Turret::Update(const Camera& camera)
@@ -55,11 +95,24 @@ void Tank::Turret::Update(const Camera& camera)
 	transform.GetRotation().y += 0.001f;
 }
 
-Tank::Tracks::Tracks()
+Tank::Tracks::Tracks(Type type, const Transform& transform) :Object(transform)
 {
-	mesh = new Mesh("./resources/models/LowPolyTank1/tracks.obj");
+	switch (type)
+	{
+	case TURTLE:
+		mesh = new Mesh("./resources/models/" + s_turtleFile + "/tracks.obj");
+		break;
+	case CLASSIC:
+		mesh = new Mesh("./resources/models/" + s_classicFile + "/tracks.obj");
+		break;
+	case DOUBLE:
+		mesh = new Mesh("./resources/models/" + s_doubleFile + "/tracks.obj");
+		break;
+	default:
+		throw std::invalid_argument("Undefined tank type");
+	}
 	shader = new Shader("./resources/shaders/LambertsLightShader");
-	texture = new Texture("./resources/textures/green.jpg");
+	texture = new Texture("./resources/textures/tracked_2.jpg");
 }
 
 void Tank::Tracks::Update(const Camera& camera)
