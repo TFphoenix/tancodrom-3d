@@ -45,7 +45,7 @@ void Helicopter::UpdateThenDraw(const Camera& camera)
 
 Helicopter::Base::Base()
 {
-	mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter_bodyobj.obj");
+	mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_body_centered.obj");
 	shader = new Shader("./resources/shaders/LambertsLightShader");
 	texture = new Texture("./resources/textures/green_metal3.jpg");
 }
@@ -62,10 +62,10 @@ Helicopter::Window::Window(Type type) :m_type(type)
 	switch (type)
 	{
 	case Type::Left:
-		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__left_window.obj");
+		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_left_window_centered.obj");
 		break;
 	case Type::Right:
-		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__right_window.obj");
+		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_right_window_centered.obj");
 		break;
 	default:
 		throw std::invalid_argument("Undefined Window type");
@@ -86,12 +86,12 @@ Helicopter::Blades::Blades(Type type) :m_type(type)
 	switch (type)
 	{
 	case Type::Big:
-		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__Big_blades.obj");
+		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_main_blades_centered.obj");
 		break;
 	case Type::Small:
-		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__Small_blades_centered.obj");
-		transform.GetPosition().z -= 8.1f;
-		transform.GetPosition().y += 2.5f;
+		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_tail_blades_centered.obj");
+		transform.GetPosition().z -= 7.47f;
+		transform.GetPosition().y += 3.7f;
 		break;
 	default:
 		throw std::invalid_argument("Undefined Blades type");
@@ -107,10 +107,10 @@ void Helicopter::Blades::Update(const Camera& camera)
 	texture->Bind(0);
 	if (m_type == Type::Big)
 	{
-		transform.GetRotation().y += 0.1f;
+		transform.GetRotation().y += 0.05f;
 	}
 	else
 	{
-		transform.GetRotation().x += 0.1f;
+		transform.GetRotation().x += 0.05f;
 	}
 }
