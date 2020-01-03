@@ -15,6 +15,7 @@ Helicopter::Helicopter() :
 	for (auto& obj : m_components)
 	{
 		obj->transform.GetPosition().x += 20.0f;
+		obj->transform.GetPosition().y += 10.0f;
 	}
 }
 
@@ -88,7 +89,9 @@ Helicopter::Blades::Blades(Type type) :m_type(type)
 		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__Big_blades.obj");
 		break;
 	case Type::Small:
-		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__Small_blades.obj");
+		mesh = new Mesh("./resources/models/AlexHelicopter/Helicopter__Small_blades_centered.obj");
+		transform.GetPosition().z -= 8.1f;
+		transform.GetPosition().y += 2.5f;
 		break;
 	default:
 		throw std::invalid_argument("Undefined Blades type");
@@ -105,5 +108,9 @@ void Helicopter::Blades::Update(const Camera& camera)
 	if (m_type == Type::Big)
 	{
 		transform.GetRotation().y += 0.1f;
+	}
+	else
+	{
+		transform.GetRotation().x += 0.1f;
 	}
 }

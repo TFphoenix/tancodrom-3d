@@ -32,8 +32,12 @@ Display::Display(uint16_t width, uint16_t height, const std::string& title)
 
 	m_isClosed = false;
 
-	// Face culling
+	// Depth Testing
 	glEnable(GL_DEPTH_TEST);
+	//glDepthMask(GL_FALSE);
+	glDepthFunc(GL_LEQUAL);
+
+	// Face culling
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 
