@@ -4,7 +4,7 @@
 class Helicopter : public Object
 {
 public:
-	Helicopter();
+	Helicopter(Transform transform = Transform());
 
 	void Update(const Camera& camera) override;
 	void Draw() const override;
@@ -14,7 +14,7 @@ private:
 	class Base :public Object
 	{
 	public:
-		Base();
+		Base(const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
@@ -30,7 +30,7 @@ private:
 		};
 
 	public:
-		Window(Type type);
+		Window(Type type, const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
@@ -49,7 +49,7 @@ private:
 		};
 
 	public:
-		Blades(Type type);
+		Blades(Type type, const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
@@ -59,11 +59,16 @@ private:
 	};
 
 private:
+	// Components
 	Base m_base;
 	Window m_leftWindow;
 	Window m_rightWindow;
 	Blades m_bigBlades;
 	Blades m_smallBlades;
 	std::vector<Object*> m_components;
+
+	// Logic
+	float m_levitatingFactor = 0;
+	int m_levitatingCondition = 0;
 };
 

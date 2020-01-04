@@ -7,7 +7,7 @@ class Object
 {
 public:
 	// Graphic
-	virtual void Update(const Camera& camera) = 0;
+	virtual void Update(const Camera& camera) { shader->Bind(); shader->Update(transform, camera); texture->Bind(0); }
 	virtual void Draw() const { mesh->Draw(); }
 	virtual void UpdateThenDraw(const Camera& camera) { Update(camera); Draw(); }
 

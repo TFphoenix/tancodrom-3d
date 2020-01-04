@@ -15,10 +15,10 @@ inline Terrain::Terrain()
 {
 	// Build Mesh
 	Vertex vertices[] = {
-		Vertex(glm::vec3(-100.0f,0.0f,-100.0f),	glm::vec2(0.5f,1.0f)),
-		Vertex(glm::vec3(100.0f,0.0f,-100.0f),	glm::vec2(1.0f,0.0f)),
-		Vertex(glm::vec3(-100.0f,0.0f,100.0f),	glm::vec2(0.0f,0.0f)),
-		Vertex(glm::vec3(100.0f,0.0f,100.0f),	glm::vec2(1.0f,1.0f))
+		Vertex(glm::vec3(-500.0f,0.0f,-500.0f),	glm::vec2(0.5f,1.0f)),
+		Vertex(glm::vec3(500.0f,0.0f,-500.0f),	glm::vec2(1.0f,0.0f)),
+		Vertex(glm::vec3(-500.0f,0.0f,500.0f),	glm::vec2(0.0f,0.0f)),
+		Vertex(glm::vec3(500.0f,0.0f,500.0f),	glm::vec2(1.0f,1.0f))
 	};
 	unsigned indices[] = { 2,1,0,
 							1,2,3 };

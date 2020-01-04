@@ -20,15 +20,22 @@
     <ClCompile Include="obj_loader.cpp">
       <Filter>OBJ Loader</Filter>
     </ClCompile>
-    <ClCompile Include="Tank.cpp">
-      <Filter>Scene</Filter>
+    <ClCompile Include="Helicopter.cpp">
+      <Filter>Scene\Objects</Filter>
     </ClCompile>
     <ClCompile Include="LightSource.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Helicopter.cpp">
-      <Filter>Scene</Filter>
+    <ClCompile Include="Tank.cpp">
+      <Filter>Scene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="HelicopterLandingPad.cpp">
+      <Filter>Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BigSpotlight.cpp">
+      <Filter>Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DirtStadium.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -45,6 +52,9 @@
     </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{ad288371-a250-4d83-9dcc-415638dbb90a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Objects">
+      <UniqueIdentifier>{214aa3e8-e8b8-461a-af86-03420e422b9e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,21 +85,26 @@
     <ClInclude Include="Settings.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Tank.h">
-      <Filter>Scene</Filter>
+    <ClInclude Include="Helicopter.h">
+      <Filter>Scene\Objects</Filter>
     </ClInclude>
     <ClInclude Include="LightSource.h">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Helicopter.h">
-      <Filter>Scene</Filter>
+    <ClInclude Include="Tank.h">
+      <Filter>Scene\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="HelicopterLandingPad.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BigSpotlight.h" />
+    <ClInclude Include="DirtStadium.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">

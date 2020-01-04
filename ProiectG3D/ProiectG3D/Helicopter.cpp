@@ -1,10 +1,12 @@
 #include "Helicopter.h"
 
-Helicopter::Helicopter() :
-	m_leftWindow(Window::Type::Left),
-	m_rightWindow(Window::Type::Right),
-	m_bigBlades(Blades::Type::Big),
-	m_smallBlades(Blades::Type::Small)
+Helicopter::Helicopter(Transform transform) :
+	Object(transform),
+	m_base(transform),
+	m_leftWindow(Window::Type::Left, transform),
+	m_rightWindow(Window::Type::Right, transform),
+	m_bigBlades(Blades::Type::Big, transform),
+	m_smallBlades(Blades::Type::Small, transform)
 {
 	m_components.push_back(dynamic_cast<Object*>(&m_base));
 	m_components.push_back(dynamic_cast<Object*>(&m_leftWindow));
@@ -15,7 +17,7 @@ Helicopter::Helicopter() :
 	for (auto& obj : m_components)
 	{
 		obj->GetTransform().GetPosition().x += 20.0f;
-		obj->GetTransform().GetPosition().y += 20.0f;
+		obj->GetTransform().GetPosition().y += 10.0f;
 		obj->GetTransform().GetScale() += 2.0f;
 	}
 }
@@ -38,13 +40,23 @@ void Helicopter::Draw() const
 
 void Helicopter::UpdateThenDraw(const Camera& camera)
 {
+	bool levitate = false;
+	if (++m_levitatingCondition == 10)
+	{
+		m_levitatingFactor += 1.0f;
+		m_levitatingCondition = 0;
+		levitate = true;
+	}
+
 	for (auto& obj : m_components)
 	{
+		if (levitate)
+			obj->GetTransform().GetPosition().y += sinf(glm::radians(m_levitatingFactor));
 		obj->UpdateThenDraw(camera);
 	}
 }
 
-Helicopter::Base::Base()
+Helicopter::Base::Base(const Transform& transform) :Object(transform)
 {
 	mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_body_centered.obj");
 	shader = new Shader("./resources/shaders/LambertsLightShader");
@@ -58,7 +70,7 @@ void Helicopter::Base::Update(const Camera& camera)
 	texture->Bind(0);
 }
 
-Helicopter::Window::Window(Type type) :m_type(type)
+Helicopter::Window::Window(Type type, const Transform& transform) :Object(transform), m_type(type)
 {
 	switch (type)
 	{
@@ -82,7 +94,7 @@ void Helicopter::Window::Update(const Camera& camera)
 	texture->Bind(0);
 }
 
-Helicopter::Blades::Blades(Type type) :m_type(type)
+Helicopter::Blades::Blades(Type type, const Transform& transform) :Object(transform), m_type(type)
 {
 	switch (type)
 	{
@@ -91,8 +103,8 @@ Helicopter::Blades::Blades(Type type) :m_type(type)
 		break;
 	case Type::Small:
 		mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_tail_blades_centered.obj");
-		transform.GetPosition().z -= 22.4f;
-		transform.GetPosition().y += 11.1f;
+		this->transform.GetPosition().z -= 22.4f;
+		this->transform.GetPosition().y += 11.1f;
 		break;
 	default:
 		throw std::invalid_argument("Undefined Blades type");

@@ -145,6 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BigSpotlight.cpp" />
+    <ClCompile Include="DirtStadium.cpp" />
+    <ClCompile Include="HelicopterLandingPad.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Helicopter.cpp" />
     <ClCompile Include="LightSource.cpp" />
@@ -157,6 +160,9 @@
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigSpotlight.h" />
+    <ClInclude Include="DirtStadium.h" />
+    <ClInclude Include="HelicopterLandingPad.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Helicopter.h" />
