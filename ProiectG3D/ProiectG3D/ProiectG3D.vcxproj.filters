@@ -36,6 +36,9 @@
       <Filter>Scene\Objects</Filter>
     </ClCompile>
     <ClCompile Include="DirtStadium.cpp" />
+    <ClCompile Include="Vegetation.cpp">
+      <Filter>Scene\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -105,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="BigSpotlight.h" />
     <ClInclude Include="DirtStadium.h" />
+    <ClInclude Include="Vegetation.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">

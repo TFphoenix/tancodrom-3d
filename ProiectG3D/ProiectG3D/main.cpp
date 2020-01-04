@@ -11,6 +11,7 @@
 #include "HelicopterLandingPad.h"
 #include "BigSpotlight.h"
 #include "DirtStadium.h"
+#include "Vegetation.h"
 
 int main()
 {
@@ -25,6 +26,9 @@ int main()
 	display.SetCamera(camera);
 
 	// Objects
+	Vegetation vegetation1(Vegetation::Type::BUSH,Transform(glm::vec3(30,0,150)));
+	Vegetation vegetation2(Vegetation::Type::FLOWER, Transform(glm::vec3(50,0,150)));
+	Vegetation vegetation3(Vegetation::Type::GRASS, Transform(glm::vec3(75,0,150)));
 	Terrain terrain;
 	Tank tank1(Tank::CLASSIC, Transform(glm::vec3(50, 0, -50)));
 	Tank tank2(Tank::DOUBLE, Transform(glm::vec3(50, 0, 50)));
@@ -50,7 +54,10 @@ int main()
 	{
 		display.Clear(0.0f, 0.15f, 0.3f);
 
-
+		//Vegetation
+		vegetation1.UpdateThenDraw(camera);
+		vegetation2.UpdateThenDraw(camera);
+		vegetation3.UpdateThenDraw(camera);
 		
 		// Terrain
 		terrain.UpdateThenDraw(camera);

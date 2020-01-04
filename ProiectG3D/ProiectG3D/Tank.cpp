@@ -1,4 +1,5 @@
 #include "Tank.h"
+#include<stdexcept>
 
 // File Paths
 const std::string Tank::s_turtleFile("FINAL/Turtle");
