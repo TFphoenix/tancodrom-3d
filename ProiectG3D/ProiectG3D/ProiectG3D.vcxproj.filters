@@ -41,11 +41,11 @@
     <ClCompile Include="DirtStadium.cpp">
       <Filter>Scene\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Human.cpp">
-      <Filter>Scene\Objects</Filter>
-    <ClCompile Include="Human.cpp" />
     <ClCompile Include="Skybox.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>Scene\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +123,9 @@
     <ClInclude Include="BigSpotlight.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Human.h" />
     <ClInclude Include="Skybox.h">
       <Filter>Utility</Filter>
+    </ClInclude>
     <ClInclude Include="Human.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>

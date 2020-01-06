@@ -1,7 +1,5 @@
 #include "Skybox.h"
 
-
-
 Skybox::Skybox()
 {
 	GLfloat skyboxVertices[108] =
@@ -77,14 +75,9 @@ Skybox::Skybox()
 	shader->setInt("skybox", 0);
 }
 
-
-Skybox::~Skybox()
-{
-}
-
 void Skybox::Draw(const glm::mat4 & view, const glm::mat4 & projection)
 {
-	glDepthFunc(GL_LEQUAL);
+	//glDepthFunc(GL_LEQUAL);
 	shader->Bind();
 	shader->setMat4("view", glm::mat4(glm::mat3(view)));
 	//shader->setMat4("view", projection);
@@ -95,7 +88,7 @@ void Skybox::Draw(const glm::mat4 & view, const glm::mat4 & projection)
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glBindVertexArray(0);
-	glDepthFunc(GL_LESS);
+	//glDepthFunc(GL_LESS);
 	
 }
 
