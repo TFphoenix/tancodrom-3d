@@ -12,7 +12,7 @@ public:
 	};
 
 public:
-	Tank(Type type = Type::CLASSIC, const Transform& transform = Transform());
+	Tank(Type type = CLASSIC, const Transform& transform = Transform());
 
 	void Update(const Camera& camera) override;
 	void Draw() const override;

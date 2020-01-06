@@ -4,7 +4,14 @@
 class Helicopter : public Object
 {
 public:
-	Helicopter(Transform transform = Transform());
+	enum Type
+	{
+		CLASSIC,
+		ROUND
+	};
+
+public:
+	Helicopter(Type type = CLASSIC, Transform transform = Transform());
 
 	void Update(const Camera& camera) override;
 	void Draw() const override;
@@ -14,7 +21,7 @@ private:
 	class Base :public Object
 	{
 	public:
-		Base(const Transform& transform);
+		Base(Type type, const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
@@ -23,39 +30,48 @@ private:
 	class Window :public Object
 	{
 	public:
-		enum class Type
+		enum class WindowType
 		{
 			Left,
 			Right
 		};
 
 	public:
-		Window(Type type, const Transform& transform);
+		Window(Type type, WindowType wType, const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
 
 	private:
-		Type m_type;
+		WindowType m_type;
 	};
 
 	class Blades :public Object
 	{
 	public:
-		enum class Type
+		enum class BladesType
 		{
 			Small,
 			Big
 		};
 
 	public:
-		Blades(Type type, const Transform& transform);
+		Blades(Type type, BladesType bType, const Transform& transform);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
 
 	private:
-		Type m_type;
+		BladesType m_type;
+	};
+
+	class Support :public Object
+	{
+	public:
+		Support(Type type, const Transform& transform);
+		friend Helicopter;
+
+		void Update(const Camera& camera) override;
 	};
 
 private:
@@ -65,10 +81,12 @@ private:
 	Window m_rightWindow;
 	Blades m_bigBlades;
 	Blades m_smallBlades;
+	Support* m_support;
 	std::vector<Object*> m_components;
 
 	// Logic
 	float m_levitatingFactor = 0;
 	int m_levitatingCondition = 0;
+	Type m_type;
 };
 

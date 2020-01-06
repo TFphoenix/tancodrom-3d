@@ -29,7 +29,7 @@ int main()
 	Tank tank1(Tank::CLASSIC, Transform(glm::vec3(50, 0, -50)));
 	Tank tank2(Tank::DOUBLE, Transform(glm::vec3(50, 0, 50)));
 	Tank tank3(Tank::TURTLE, Transform(glm::vec3(-50, 0, -50)));
-	Helicopter helicopter(Transform(glm::vec3(-20, 80, 0)));
+	Helicopter helicopter(Helicopter::CLASSIC, Transform(glm::vec3(-20, 80, 0)));
 	HelicopterLandingPad landingPad;
 	BigSpotlight spotlight1(Transform(glm::vec3(-100, 0, 90), glm::vec3(0, glm::radians(-45.0f), 0)));
 	BigSpotlight spotlight2(Transform(glm::vec3(-200, 0, 90)));
@@ -44,7 +44,6 @@ int main()
 	std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).count() / 1000.0f << "[seconds]" << std::endl;
 
 
-	
 	// Render loop
 	while (!display.IsClosed())
 	{
