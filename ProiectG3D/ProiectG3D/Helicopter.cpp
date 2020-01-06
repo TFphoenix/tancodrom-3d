@@ -48,7 +48,7 @@ void Helicopter::Draw() const
 void Helicopter::UpdateThenDraw(const Camera& camera)
 {
 	bool levitate = false;
-	if (++m_levitatingCondition == 10)
+	if (++m_levitatingCondition == 5)
 	{
 		m_levitatingFactor += 1.0f;
 		m_levitatingCondition = 0;
@@ -167,11 +167,11 @@ void Helicopter::Blades::Update(const Camera& camera)
 	texture->Bind(0);
 	if (m_type == BladesType::Big)
 	{
-		transform.GetRotation().y += 0.05f;
+		transform.GetRotation().y += 0.1f;
 	}
 	else
 	{
-		transform.GetRotation().x += 0.05f;
+		transform.GetRotation().x += 0.1f;
 	}
 }
 
