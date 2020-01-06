@@ -35,10 +35,13 @@
     <ClCompile Include="BigSpotlight.cpp">
       <Filter>Scene\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="DirtStadium.cpp" />
     <ClCompile Include="Vegetation.cpp">
       <Filter>Scene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="DirtStadium.cpp">
+      <Filter>Scene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -106,11 +109,16 @@
     <ClInclude Include="HelicopterLandingPad.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="BigSpotlight.h" />
-    <ClInclude Include="DirtStadium.h" />
     <ClInclude Include="Vegetation.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="DirtStadium.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BigSpotlight.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">

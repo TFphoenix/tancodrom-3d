@@ -18,6 +18,9 @@ public:
 	void Draw() const override;
 	void UpdateThenDraw(const Camera& camera) override;
 
+	// Actions
+	void SetRotateTurret(bool rotateTurret);
+
 private:
 	class Base :public Object
 	{
@@ -35,6 +38,9 @@ private:
 		friend Tank;
 
 		void Update(const Camera& camera) override;
+
+	private:
+		bool m_rotate;
 	};
 
 	class Tracks :public Object

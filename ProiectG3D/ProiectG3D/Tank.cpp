@@ -13,14 +13,29 @@ Tank::Tank(Type type, const Transform& transform) :
 	m_tracks(type, transform),
 	m_type(type)
 {
-	// empty
+	m_turret.m_rotate = true;
 }
 
 void Tank::UpdateThenDraw(const Camera& camera)
 {
+	m_base.transform = transform;
 	m_base.UpdateThenDraw(camera);
+	if (m_turret.m_rotate)
+	{
+		m_turret.transform.SetPosition(transform.GetPosition());
+		m_turret.transform.SetScale(transform.GetScale());
+	}
+	{
+		m_turret.transform = transform;
+	}
 	m_turret.UpdateThenDraw(camera);
+	m_tracks.transform = transform;
 	m_tracks.UpdateThenDraw(camera);
+}
+
+void Tank::SetRotateTurret(bool rotateTurret)
+{
+	m_turret.m_rotate = rotateTurret;
 }
 
 void Tank::Update(const Camera& camera)
@@ -93,7 +108,10 @@ void Tank::Turret::Update(const Camera& camera)
 	shader->Bind();
 	shader->Update(transform, camera);
 	texture->Bind(0);
-	transform.GetRotation().y += 0.001f;
+	if (m_rotate)
+		transform.GetRotation().y += 0.001f;
+	else
+		transform.SetRotation(glm::vec3(0, 0, 0));
 }
 
 Tank::Tracks::Tracks(Type type, const Transform& transform) :Object(transform)

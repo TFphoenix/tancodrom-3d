@@ -23,19 +23,19 @@
     <ProjectGuid>{F33F510E-E442-4F1C-8A5B-618A9BC243FE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ProiectG3D</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -150,6 +150,7 @@
     <ClCompile Include="HelicopterLandingPad.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Helicopter.cpp" />
+    <ClCompile Include="Human.cpp" />
     <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Helicopter.h" />
+    <ClInclude Include="Human.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Settings.h" />
