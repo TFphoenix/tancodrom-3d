@@ -12,6 +12,7 @@
 #include "BigSpotlight.h"
 #include "DirtStadium.h"
 #include "Vegetation.h"
+#include "Skybox.h"
 
 int main()
 {
@@ -89,12 +90,14 @@ int main()
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 	std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).count() / 1000.0f << "[seconds]" << std::endl;
 
+	//Skybox
+	Skybox skybox;
 
 	// Render loop
 	while (!display.IsClosed())
 	{
 		display.Clear(0.0f, 0.15f, 0.3f);
-
+		skybox.Draw(camera.GetView(), camera.GetProjection());
 		for (auto& object : objects)
 		{
 			object->UpdateThenDraw(camera);
