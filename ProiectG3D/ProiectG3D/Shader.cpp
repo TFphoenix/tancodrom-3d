@@ -47,6 +47,16 @@ void Shader::Update(const Transform& transform, const Camera& camera)
 	glUniformMatrix4fv(m_uniforms[TRANSFORM_U], 1, GL_FALSE, &model[0][0]);
 }
 
+void Shader::setMat4(const char * ch, const glm::mat4 & mat)
+{
+	glUniformMatrix4fv(glGetUniformLocation(m_program, ch), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void Shader::setInt(const char * ch, const int & i)
+{
+	glUniform1i(glGetUniformLocation(this->m_program, ch), i);
+}
+
 std::string Shader::LoadShader(const std::string& fileName)
 {
 	std::ifstream file;

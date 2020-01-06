@@ -5,6 +5,8 @@
 #include "Transform.h"
 #include "Camera.h"
 
+#include <glm/gtc/type_ptr.hpp>
+
 class Shader
 {
 public:
@@ -15,6 +17,10 @@ public:
 
 	void Bind();
 	void Update(const Transform& transform, const Camera& camera);
+
+	void setMat4(const char* ch, const glm::mat4& mat);
+
+	void setInt(const char * ch, const int & i);
 
 private:
 	std::string LoadShader(const std::string& fileName);

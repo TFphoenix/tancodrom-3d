@@ -139,5 +139,11 @@
     <None Include="resources\shaders\PhongLight.vs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="Skybox.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Skybox.vs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
