@@ -1,4 +1,5 @@
 #include "Helicopter.h"
+#include<stdexcept>
 
 Helicopter::Helicopter(Type type, Transform transform) :
 	Object(transform),
