@@ -37,7 +37,7 @@ int main()
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(10, 0, -23))));
 	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(-8, 0, -25))));
 	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(-5, 0, -23))));
-	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(-10, 0, -24)))); 
+	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(-10, 0, -24))));
 	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(0, 0, -23))));
 	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(20, 0, -23))));
 
@@ -66,28 +66,28 @@ int main()
 	objects.push_back(new Terrain);
 
 	//Tank
-	objects.push_back(new Tank (Tank::CLASSIC, Transform(glm::vec3(50, 0, -50))));
-	objects.push_back(new Tank (Tank::DOUBLE, Transform(glm::vec3(50, 0, 50))));
-	objects.push_back(new Tank (Tank::TURTLE, Transform(glm::vec3(-50, 0, -50))));
+	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(50, 0, -50))));
+	objects.push_back(new Tank(Tank::DOUBLE, Transform(glm::vec3(50, 0, 50))));
+	objects.push_back(new Tank(Tank::TURTLE, Transform(glm::vec3(-50, 0, -50))));
 
 	//Helicopter
 	objects.push_back(new Helicopter(Helicopter::CLASSIC, Transform(glm::vec3(-20, 80, 0))));
 	objects.push_back(new HelicopterLandingPad);
 
 	//BigSpotlight
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-100, 0, 90), glm::vec3(0, glm::radians(-45.0f), 0))));
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-200, 0, 90))));
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-300, 0, 90), glm::vec3(0, glm::radians(45.0f), 0))));
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-100, 0, 210), glm::vec3(0, glm::radians(225.0f), 0))));
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-200, 0, 210), glm::vec3(0, glm::radians(180.0f), 0))));
-	objects.push_back(new BigSpotlight (Transform(glm::vec3(-300, 0, 210), glm::vec3(0, glm::radians(135.0f), 0))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-100, 0, 90), glm::vec3(0, glm::radians(-45.0f), 0))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-200, 0, 90))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-300, 0, 90), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-100, 0, 210), glm::vec3(0, glm::radians(225.0f), 0))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-200, 0, 210), glm::vec3(0, glm::radians(180.0f), 0))));
+	objects.push_back(new BigSpotlight(Transform(glm::vec3(-300, 0, 210), glm::vec3(0, glm::radians(135.0f), 0))));
 
 	//Stadium
-	objects.push_back(new DirtStadium (Transform(glm::vec3(-200, 0, 150))));
+	objects.push_back(new DirtStadium(Transform(glm::vec3(-200, 0, 150))));
 
-	// Load Time measure: ~1.8s, ~2.5s
-	//::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-	//std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).(count) / 1000.0f << "[seconds]" << std::endl;
+	//Load Time measure: ~1.8s, ~2.5s
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).count() / 1000.0f << "[seconds]" << std::endl;
 
 
 	// Render loop
@@ -97,7 +97,7 @@ int main()
 
 		for (auto& object : objects)
 		{
-		  object->UpdateThenDraw(camera);
+			object->UpdateThenDraw(camera);
 		}
 
 		display.Update();
