@@ -7,7 +7,9 @@ public:
 	enum Type {
 		JOHN,
 		OLGA,
+		OLGA_CROSSED,
 		STEVE,
+		STEVE_CROSSED,
 		DIANA
 	};
 

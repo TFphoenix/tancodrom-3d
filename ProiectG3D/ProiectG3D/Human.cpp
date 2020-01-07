@@ -25,17 +25,29 @@ Human::Hands::Hands(Type type, const Transform& transform) : Object(transform)
 	{
 	case JOHN:
 		texture = new Texture("./resources/textures/skin1.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands.obj");
 		break;
 	case OLGA:
 		texture = new Texture("./resources/textures/skin2.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands.obj");
 		break;
 	case STEVE:
 		texture = new Texture("./resources/textures/skin1.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands.obj");
+		break;
+	case OLGA_CROSSED:
+		texture = new Texture("./resources/textures/skin2.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands_crossed.obj");
+		break;
+	case STEVE_CROSSED:
+		texture = new Texture("./resources/textures/skin1.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands_crossed.obj");
 		break;
 	default:
 		texture = new Texture("./resources/textures/skin2.jpg");
+		mesh = new Mesh("./resources/models/Crowd/hands.obj");
 	}
-	mesh = new Mesh("./resources/models/Crowd/hands.obj");
+	
 	shader = new Shader("./resources/shaders/basicShader");
 }
 
@@ -50,6 +62,12 @@ Human::Feet::Feet(Type type, const Transform& transform) : Object(transform)
 		texture = new Texture("./resources/textures/green_camo.jpg");
 		break;
 	case STEVE:
+		texture = new Texture("./resources/textures/green_camo2.jpg");
+		break;
+	case OLGA_CROSSED:
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	case STEVE_CROSSED:
 		texture = new Texture("./resources/textures/green_camo2.jpg");
 		break;
 	case DIANA:
@@ -75,6 +93,12 @@ Human::Body::Body(Type type, const Transform& transform) : Object(transform)
 	case STEVE:
 		texture = new Texture("./resources/textures/green_camo2.jpg");
 		break;
+	case OLGA_CROSSED:
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	case STEVE_CROSSED:
+		texture = new Texture("./resources/textures/green_camo2.jpg");
+		break;
 	case DIANA:
 		texture = new Texture("./resources/textures/shirt.jpg");
 		break;
@@ -96,6 +120,12 @@ Human::Head::Head(Type type, const Transform& transform) : Object(transform)
 		texture = new Texture("./resources/textures/face2.jpg");
 		break;
 	case STEVE:
+		texture = new Texture("./resources/textures/face3.jpg");
+		break;
+	case OLGA_CROSSED:
+		texture = new Texture("./resources/textures/face2.jpg");
+		break;
+	case STEVE_CROSSED:
 		texture = new Texture("./resources/textures/face3.jpg");
 		break;
 	case DIANA:
