@@ -14,6 +14,7 @@
 #include "Vegetation.h"
 #include "Skybox.h"
 #include "Showcase.h"
+#include "Human.h"
 
 int main()
 {
@@ -63,7 +64,7 @@ int main()
 	objects.push_back(new Terrain);
 
 	// Tanks
-	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(50, 0, -50))));
+	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(50, 4, -50))));
 	objects.push_back(new Tank(Tank::DOUBLE, Transform(glm::vec3(50, 0, 50))));
 	objects.push_back(new Tank(Tank::TURTLE, Transform(glm::vec3(-50, 0, -50))));
 
@@ -95,6 +96,7 @@ int main()
 
 	// Test
 	Showcase ramp(Showcase::OPEN_CAGE, Transform(glm::vec3(50, 0, -50)));
+	Human john(Human::JOHN, Transform(glm::vec3(70, 0, -70)));
 
 
 	// Render loop
@@ -113,6 +115,7 @@ int main()
 
 		// Test
 		ramp.UpdateThenDraw(camera);
+		john.UpdateThenDraw(camera);
 
 		display.Update();
 	}
