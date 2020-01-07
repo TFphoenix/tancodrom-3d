@@ -15,6 +15,7 @@
 #include "Skybox.h"
 #include "Showcase.h"
 #include "Human.h"
+#include "Hangar.h"
 
 int main()
 {
@@ -66,7 +67,7 @@ int main()
 	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(170, 0, -2))));
 	objects.push_back(new Vegetation(Vegetation::Type::FLOWER, Transform(glm::vec3(170, 0, -1))));
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(170, 0, 0))));
-	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(170, 0,10))));
+	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(170, 0, 10))));
 
 	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(130, 0, -9))));
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(130, 0, 2))));
@@ -105,15 +106,11 @@ int main()
 	// Stadium
 	objects.push_back(new DirtStadium(Transform(glm::vec3(-200, 0, 150))));
 
-	// Load Time measure: ~1.8s, ~2.5s
-	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-	std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).count() / 1000.0f << "[seconds]" << std::endl;
-
 	//Skybox
 	Skybox skybox;
 
 	//Humans
-	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(0, 0, 250),glm::vec3(0,glm::radians(30.0f),0))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(0, 0, 250), glm::vec3(0, glm::radians(30.0f), 0))));
 	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(5, 0, 260))));
 	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(3, 0, 262))));
 	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(10, 0, 255))));
@@ -147,21 +144,26 @@ int main()
 	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(160, 0, 60))));
 	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(40, 0, 30))));
 
-
-
-
-
 	//Showcases
-	objects.push_back(new Showcase (Showcase::OPEN_CAGE, Transform(glm::vec3(0, 0, 300))));
-	objects.push_back(new Showcase (Showcase::CLOSED_CAGE, Transform(glm::vec3(70, 0, 300))));
-	objects.push_back(new Showcase (Showcase::OPEN_CAGE, Transform(glm::vec3(140, 0, 300))));
-	objects.push_back(new Showcase (Showcase::CLOSED_CAGE, Transform(glm::vec3(210, 0, 300))));
-	objects.push_back(new Showcase (Showcase::OPEN_CAGE ,Transform(glm::vec3(280, 0, 300))));
-	
+	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(0, 0, 300))));
+	objects.push_back(new Showcase(Showcase::CLOSED_CAGE, Transform(glm::vec3(70, 0, 300))));
+	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(140, 0, 300))));
+	objects.push_back(new Showcase(Showcase::CLOSED_CAGE, Transform(glm::vec3(210, 0, 300))));
+	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(280, 0, 300))));
+
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, 0))));
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -100))));
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -200))));
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -300))));
+
+	// Hangar
+	objects.push_back(new Hangar(Transform(glm::vec3(300, 0, -200))));
+
+	// Load Time measure: ~1.8s, ~2.5s
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	std::cout << "Load Time = " << std::chrono::duration_cast<std::chrono::milliseconds> (end - begin).count() / 1000.0f << "[seconds]" << std::endl;
+
+
 
 	// Render loop
 	while (!display.IsClosed())

@@ -50,6 +50,7 @@
     <ClCompile Include="Showcase.cpp">
       <Filter>Scene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Hangar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -135,6 +136,7 @@
     <ClInclude Include="Showcase.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Hangar.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\basicShader.fs">

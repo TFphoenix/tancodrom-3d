@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="BigSpotlight.cpp" />
     <ClCompile Include="DirtStadium.cpp" />
+    <ClCompile Include="Hangar.cpp" />
     <ClCompile Include="HelicopterLandingPad.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Helicopter.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="BigSpotlight.h" />
     <ClInclude Include="DirtStadium.h" />
+    <ClInclude Include="Hangar.h" />
     <ClInclude Include="HelicopterLandingPad.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Display.h" />
