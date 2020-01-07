@@ -24,12 +24,18 @@ Human::Hands::Hands(Type type, const Transform& transform) : Object(transform)
 	switch (type)
 	{
 	case JOHN:
-		mesh = new Mesh("./resources/models/Crowd/hands.obj");
-		texture = new Texture("./resources/textures/skin.jpg");
+		texture = new Texture("./resources/textures/skin1.jpg");
+		break;
+	case OLGA:
+		texture = new Texture("./resources/textures/skin2.jpg");
+		break;
+	case STEVE:
+		texture = new Texture("./resources/textures/skin1.jpg");
 		break;
 	default:
-		break;
+		texture = new Texture("./resources/textures/skin2.jpg");
 	}
+	mesh = new Mesh("./resources/models/Crowd/hands.obj");
 	shader = new Shader("./resources/shaders/basicShader");
 }
 
@@ -38,12 +44,21 @@ Human::Feet::Feet(Type type, const Transform& transform) : Object(transform)
 	switch (type)
 	{
 	case JOHN:
-		mesh = new Mesh("./resources/models/Crowd/feet.obj");
 		texture = new Texture("./resources/textures/blue_trousers.jpg");
+		break;
+	case OLGA:
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	case STEVE:
+		texture = new Texture("./resources/textures/green_camo2.jpg");
+		break;
+	case DIANA:
+		texture = new Texture("./resources/textures/pink_fabric.jpg");
 		break;
 	default:
 		break;
 	}
+	mesh = new Mesh("./resources/models/Crowd/feet.obj");
 	shader = new Shader("./resources/shaders/basicShader");
 }
 
@@ -52,12 +67,21 @@ Human::Body::Body(Type type, const Transform& transform) : Object(transform)
 	switch (type)
 	{
 	case JOHN:
-		mesh = new Mesh("./resources/models/Crowd/body.obj");
 		texture = new Texture("./resources/textures/blue_fabric.jpg");
+		break;
+	case OLGA:
+		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	case STEVE:
+		texture = new Texture("./resources/textures/green_camo2.jpg");
+		break;
+	case DIANA:
+		texture = new Texture("./resources/textures/shirt.jpg");
 		break;
 	default:
 		break;
 	}
+	mesh = new Mesh("./resources/models/Crowd/body.obj");
 	shader = new Shader("./resources/shaders/basicShader");
 }
 
@@ -66,11 +90,20 @@ Human::Head::Head(Type type, const Transform& transform) : Object(transform)
 	switch (type)
 	{
 	case JOHN:
-		mesh = new Mesh("./resources/models/Crowd/head.obj");
-		texture = new Texture("./resources/textures/face_resized.jpg");
+		texture = new Texture("./resources/textures/face1.jpg");
+		break;
+	case OLGA:
+		texture = new Texture("./resources/textures/face2.jpg");
+		break;
+	case STEVE:
+		texture = new Texture("./resources/textures/face3.jpg");
+		break;
+	case DIANA:
+		texture = new Texture("./resources/textures/face4.jpg");
 		break;
 	default:
 		break;
 	}
+	mesh = new Mesh("./resources/models/Crowd/head_sphere.obj");
 	shader = new Shader("./resources/shaders/basicShader");
 }

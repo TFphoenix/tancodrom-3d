@@ -96,7 +96,10 @@ int main()
 
 	// Test
 	Showcase ramp(Showcase::OPEN_CAGE, Transform(glm::vec3(50, 0, -50)));
-	Human john(Human::JOHN, Transform(glm::vec3(70, 0, -70)));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(70, 0, -70))));
+	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(80, 0, -70))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(90, 0, -70))));
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(100, 0, -70))));
 
 
 	// Render loop
@@ -115,7 +118,6 @@ int main()
 
 		// Test
 		ramp.UpdateThenDraw(camera);
-		john.UpdateThenDraw(camera);
 
 		display.Update();
 	}

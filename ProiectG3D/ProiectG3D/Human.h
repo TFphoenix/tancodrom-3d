@@ -5,7 +5,10 @@ class Human :public Object
 {
 public:
 	enum Type {
-		JOHN
+		JOHN,
+		OLGA,
+		STEVE,
+		DIANA
 	};
 
 public:
