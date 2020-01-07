@@ -56,7 +56,7 @@ Tank::Base::Base(Type type, const Transform& transform) :Object(transform)
 	{
 	case TURTLE:
 		mesh = new Mesh("./resources/models/" + s_turtleFile + "/base.obj");
-		texture = new Texture("./resources/textures/green_metal3.jpg");
+		texture = new Texture("./resources/textures/camo2.jpeg");
 		break;
 	case CLASSIC:
 		mesh = new Mesh("./resources/models/" + s_classicFile + "/base.obj");
@@ -65,6 +65,10 @@ Tank::Base::Base(Type type, const Transform& transform) :Object(transform)
 	case DOUBLE:
 		mesh = new Mesh("./resources/models/" + s_doubleFile + "/base.obj");
 		texture = new Texture("./resources/textures/green_camo.jpg");
+		break;
+	case OLD:
+		mesh = new Mesh("./resources/models/FINAL/MC1/base.obj");
+		texture = new Texture("./resources/textures/green_metal3.jpg");
 		break;
 	default:
 		throw std::invalid_argument("Undefined tank type");
@@ -95,6 +99,10 @@ Tank::Turret::Turret(Type type, const Transform& transform) :Object(transform), 
 		mesh = new Mesh("./resources/models/" + s_doubleFile + "/turret.obj");
 		texture = new Texture("./resources/textures/green_camo.jpg");
 		break;
+	case OLD:
+		mesh = new Mesh("./resources/models/FINAL/MC1/turret.obj");
+		texture = new Texture("./resources/textures/green_metal3.jpg");
+		break;
 	default:
 		throw std::invalid_argument("Undefined tank type");
 	}
@@ -118,18 +126,25 @@ Tank::Tracks::Tracks(Type type, const Transform& transform) :Object(transform)
 	{
 	case TURTLE:
 		mesh = new Mesh("./resources/models/" + s_turtleFile + "/tracks.obj");
+		texture = new Texture("./resources/textures/tracked_2.jpg");
 		break;
 	case CLASSIC:
 		mesh = new Mesh("./resources/models/" + s_classicFile + "/tracks.obj");
+		texture = new Texture("./resources/textures/tracked_2.jpg");
 		break;
 	case DOUBLE:
 		mesh = new Mesh("./resources/models/" + s_doubleFile + "/tracks.obj");
+		texture = new Texture("./resources/textures/tracked_2.jpg");
+		break;
+	case OLD:
+		mesh = new Mesh("./resources/models/FINAL/MC1/tracks.obj");
+		texture = new Texture("./resources/textures/black_metal4.jpg");
 		break;
 	default:
 		throw std::invalid_argument("Undefined tank type");
 	}
 	shader = new Shader("./resources/shaders/LambertsLightShader");
-	texture = new Texture("./resources/textures/tracked_2.jpg");
+	
 }
 
 void Tank::Tracks::Update(const Camera& camera)

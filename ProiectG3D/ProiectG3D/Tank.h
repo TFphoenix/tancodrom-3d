@@ -8,7 +8,8 @@ public:
 	{
 		TURTLE,
 		CLASSIC,
-		DOUBLE
+		DOUBLE,
+		OLD
 	};
 
 public:
