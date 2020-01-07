@@ -94,13 +94,24 @@ int main()
 	//Skybox
 	Skybox skybox;
 
-	// Test
-	Showcase ramp(Showcase::OPEN_CAGE, Transform(glm::vec3(50, 0, -50)));
+	//Humans
 	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(70, 0, -70))));
 	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(80, 0, -70))));
 	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(90, 0, -70))));
 	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(100, 0, -70))));
 
+
+	//Showcases
+	objects.push_back(new Showcase (Showcase::OPEN_CAGE, Transform(glm::vec3(0, 0, 300))));
+	objects.push_back(new Showcase (Showcase::CLOSED_CAGE, Transform(glm::vec3(70, 0, 300))));
+	objects.push_back(new Showcase (Showcase::OPEN_CAGE, Transform(glm::vec3(140, 0, 300))));
+	objects.push_back(new Showcase (Showcase::CLOSED_CAGE, Transform(glm::vec3(210, 0, 300))));
+	objects.push_back(new Showcase (Showcase::OPEN_CAGE ,Transform(glm::vec3(280, 0, 300))));
+	
+	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, 0))));
+	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -100))));
+	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -200))));
+	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -300))));
 
 	// Render loop
 	while (!display.IsClosed())
@@ -115,9 +126,6 @@ int main()
 		{
 			object->UpdateThenDraw(camera);
 		}
-
-		// Test
-		ramp.UpdateThenDraw(camera);
 
 		display.Update();
 	}
