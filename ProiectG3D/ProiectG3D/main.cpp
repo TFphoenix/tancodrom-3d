@@ -95,11 +95,29 @@ int main()
 	Skybox skybox;
 
 	//Humans
-	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(70, 0, -70))));
-	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(80, 0, -70))));
-	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(90, 0, -70))));
-	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(100, 0, -70))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(0, 0, 250),glm::vec3(0,glm::radians(30.0f),0))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(5, 0, 260))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(10, 0, 255))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(150, 0, 265), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(155, 0, 260))));
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(270, 0, 275), glm::vec3(0, glm::radians(20.0f), 0))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(275, 0, 270))));
 
+	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(-350, 0, 0), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(-355, 0, 5), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(-360, 0, -105), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(-355, 0, -107), glm::vec3(0, glm::radians(40.0f), 0))));
+	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(-350, 0, -250), glm::vec3(0, glm::radians(25.0f), 0))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(-345, 0, -250), glm::vec3(0, glm::radians(45.0f), 0))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(-340, 0, -245), glm::vec3(0, glm::radians(45.0f), 0))));
+
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(55, 0, -60))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(40, 0, 0))));
+
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(155, 0, -50))));
+	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(150, 0, -55))));
+
+	
 
 	//Showcases
 	objects.push_back(new Showcase (Showcase::OPEN_CAGE, Transform(glm::vec3(0, 0, 300))));
