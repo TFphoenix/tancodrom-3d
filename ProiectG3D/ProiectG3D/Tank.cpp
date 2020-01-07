@@ -20,13 +20,11 @@ void Tank::UpdateThenDraw(const Camera& camera)
 {
 	m_base.transform = transform;
 	m_base.UpdateThenDraw(camera);
-	if (m_turret.m_rotate)
+	m_turret.transform.SetPosition(transform.GetPosition());
+	if (m_turret.m_rotate == false)
 	{
-		m_turret.transform.SetPosition(transform.GetPosition());
+		m_turret.transform.SetRotation(transform.GetRotation());
 		m_turret.transform.SetScale(transform.GetScale());
-	}
-	{
-		m_turret.transform = transform;
 	}
 	m_turret.UpdateThenDraw(camera);
 	m_tracks.transform = transform;
@@ -81,7 +79,7 @@ void Tank::Base::Update(const Camera& camera)
 	texture->Bind(0);
 }
 
-Tank::Turret::Turret(Type type, const Transform& transform) :Object(transform)
+Tank::Turret::Turret(Type type, const Transform& transform) :Object(transform), m_rotate(true)
 {
 	switch (type)
 	{
@@ -109,7 +107,7 @@ void Tank::Turret::Update(const Camera& camera)
 	shader->Update(transform, camera);
 	texture->Bind(0);
 	if (m_rotate)
-		transform.GetRotation().y += 0.001f;
+		transform.GetRotation().y += 0.005f;
 	else
 		transform.SetRotation(glm::vec3(0, 0, 0));
 }

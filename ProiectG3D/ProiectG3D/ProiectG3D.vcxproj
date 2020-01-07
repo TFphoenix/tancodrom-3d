@@ -158,6 +158,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="stb_image.c" />
+    <ClCompile Include="Showcase.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vegetation.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Showcase.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />

@@ -47,6 +47,9 @@
     <ClCompile Include="Human.cpp">
       <Filter>Scene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Showcase.cpp">
+      <Filter>Scene\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utility">
@@ -127,6 +130,9 @@
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="Human.h">
+      <Filter>Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Showcase.h">
       <Filter>Scene\Objects</Filter>
     </ClInclude>
   </ItemGroup>

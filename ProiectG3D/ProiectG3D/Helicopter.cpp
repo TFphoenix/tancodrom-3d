@@ -167,11 +167,11 @@ void Helicopter::Blades::Update(const Camera& camera)
 	texture->Bind(0);
 	if (m_type == BladesType::Big)
 	{
-		transform.GetRotation().y += 0.1f;
+		transform.GetRotation().y += 0.4f;
 	}
 	else
 	{
-		transform.GetRotation().x += 0.1f;
+		transform.GetRotation().x += 0.4f;
 	}
 }
 

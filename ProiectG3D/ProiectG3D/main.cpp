@@ -13,6 +13,7 @@
 #include "DirtStadium.h"
 #include "Vegetation.h"
 #include "Skybox.h"
+#include "Showcase.h"
 
 int main()
 {
@@ -93,12 +94,7 @@ int main()
 	Skybox skybox;
 
 	// Test
-	Mesh baseM("./resources/models/Miscellaneous/cage_base.obj");
-	Mesh glassM("./resources/models/Miscellaneous/cage_glass.obj");
-	Texture baseT("./resources/textures/black_metal3.jpg");
-	Texture glassT("./resources/textures/transparent_glass.png");
-	Shader shader("./resources/shaders/LambertsLightShader");
-	Transform transform(glm::vec3(50, 0, -50));
+	Showcase ramp(Showcase::OPEN_CAGE, Transform(glm::vec3(50, 0, -50)));
 
 
 	// Render loop
@@ -108,7 +104,7 @@ int main()
 
 		// Render skybox
 		skybox.Draw(camera.GetView(), camera.GetProjection());
-		
+
 		// Render all objects in scene
 		for (auto& object : objects)
 		{
@@ -116,12 +112,7 @@ int main()
 		}
 
 		// Test
-		shader.Bind();
-		shader.Update(transform, camera);
-		baseT.Bind(0);
-		baseM.Draw();
-		glassT.Bind(0);
-		glassM.Draw();
+		ramp.UpdateThenDraw(camera);
 
 		display.Update();
 	}
