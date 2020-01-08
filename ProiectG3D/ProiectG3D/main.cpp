@@ -33,7 +33,7 @@ int main()
 	std::vector<Object*> objects;
 
 	// Vegetation
-	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(15, 0, -21))));
+	/*objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(15, 0, -21))));
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(17, 0, -22))));
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(7, 0, -23))));
 	objects.push_back(new Vegetation(Vegetation::Type::GRASS, Transform(glm::vec3(-3, 0, -23))));
@@ -77,7 +77,7 @@ int main()
 
 	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(130, 0, 8))));
 	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(130, 0, 8))));
-	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(130, 0, 8))));
+	objects.push_back(new Vegetation(Vegetation::Type::BUSH, Transform(glm::vec3(130, 0, 8))));*/
 
 	// Terrain
 	objects.push_back(new Terrain);
@@ -87,10 +87,22 @@ int main()
 	objects.push_back(new Tank(Tank::DOUBLE, Transform(glm::vec3(50, 0, 50))));
 	objects.push_back(new Tank(Tank::TURTLE, Transform(glm::vec3(-50, 0, -50))));
 	objects.push_back(new Tank(Tank::OLD, Transform(glm::vec3(-400, 9, -300), glm::vec3(0, glm::radians(-90.0f), glm::radians(-13.0f)), glm::vec3(1.2f, 1.2f, 1.2f))));
+	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(-400, 9, -200), glm::vec3(0, glm::radians(-90.0f), glm::radians(-13.0f)), glm::vec3(1.2f, 1.2f, 1.2f))));
+	objects.push_back(new Tank(Tank::DOUBLE, Transform(glm::vec3(-390, 9, -100), glm::vec3(0, 0, glm::radians(-13.0f)), glm::vec3(1.2f, 1.2f, 1.2f))));
+	objects.push_back(new Tank(Tank::TURTLE, Transform(glm::vec3(-400, 9, 0), glm::vec3(0, glm::radians(-90.0f), glm::radians(-13.0f)), glm::vec3(1.2f, 1.2f, 1.2f))));
+	objects.push_back(new Tank(Tank::TURTLE, Transform(glm::vec3(270, 0, -150))));
+	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(270, 0, -200))));
+	objects.push_back(new Tank(Tank::CLASSIC, Transform(glm::vec3(330, 0, -150))));
+	objects.push_back(new Tank(Tank::OLD, Transform(glm::vec3(330, 0, -200))));
+	objects.push_back(new Tank(Tank::DOUBLE, Transform(glm::vec3(300, 0, -250))));
+	objects.push_back(new Tank(Tank::OLD, Transform(glm::vec3(300, 0, -170))));
 
 	// Helicopters
 	objects.push_back(new Helicopter(Helicopter::CLASSIC, Transform(glm::vec3(-20, 80, 0))));
 	objects.push_back(new Helicopter(Helicopter::ROUND, Transform(glm::vec3(130, 70, 0))));
+	objects.push_back(new Helicopter(Helicopter::CLASSIC, Transform(glm::vec3(-20, 0, 300))));
+	objects.push_back(new Helicopter(Helicopter::ROUND, Transform(glm::vec3(120, 0, 300))));
+
 
 	// Helicopter Landing Pads
 	objects.push_back(new HelicopterLandingPad);
@@ -111,7 +123,7 @@ int main()
 	Skybox skybox;
 
 	//Humans
-	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(0, 0, 250), glm::vec3(0, glm::radians(30.0f), 0))));
+	/*objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(0, 0, 250), glm::vec3(0, glm::radians(30.0f), 0))));
 	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(5, 0, 260))));
 	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(3, 0, 262))));
 	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(10, 0, 255))));
@@ -143,14 +155,21 @@ int main()
 
 	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(165, 0, 50))));
 	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(160, 0, 60))));
-	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(40, 0, 30))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(40, 0, 30))));*/
+
+	objects.push_back(new Human(Human::OLGA_CROSSED, Transform(glm::vec3(250, 0, -110))));
+	objects.push_back(new Human(Human::STEVE_CROSSED, Transform(glm::vec3(330, 0, -110))));
+	objects.push_back(new Human(Human::STEVE, Transform(glm::vec3(325, 0, -125), glm::vec3(0, glm::radians(180.0f), 0))));
+	objects.push_back(new Human(Human::OLGA, Transform(glm::vec3(300, 0, -135), glm::vec3(0, glm::radians(90.0f), 0))));
+	objects.push_back(new Human(Human::DIANA, Transform(glm::vec3(250, 0, -200))));
+	objects.push_back(new Human(Human::JOHN, Transform(glm::vec3(265, 0, -125), glm::vec3(0, glm::radians(180.0f), 0))));
 
 	//Showcases
 	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(0, 0, 300))));
 	objects.push_back(new Showcase(Showcase::CLOSED_CAGE, Transform(glm::vec3(70, 0, 300))));
 	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(140, 0, 300))));
 	objects.push_back(new Showcase(Showcase::CLOSED_CAGE, Transform(glm::vec3(210, 0, 300))));
-	objects.push_back(new Showcase(Showcase::OPEN_CAGE, Transform(glm::vec3(280, 0, 300))));
+	objects.push_back(new Showcase(Showcase::CLOSED_CAGE, Transform(glm::vec3(280, 0, 300))));
 
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, 0))));
 	objects.push_back(new Showcase(Showcase::RAMP, Transform(glm::vec3(-400, 0, -100))));
