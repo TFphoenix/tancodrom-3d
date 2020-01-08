@@ -1,14 +1,15 @@
 #include "Helicopter.h"
 #include<stdexcept>
 
-Helicopter::Helicopter(Type type, Transform transform) :
+Helicopter::Helicopter(Type type, Transform transform, bool levitates) :
 	Object(transform),
 	m_base(type, transform),
 	m_leftWindow(type, Window::WindowType::Left, transform),
 	m_rightWindow(type, Window::WindowType::Right, transform),
-	m_bigBlades(type, Blades::BladesType::Big, transform),
-	m_smallBlades(type, Blades::BladesType::Small, transform),
-	m_type(type)
+	m_bigBlades(type, Blades::BladesType::Big, transform, levitates),
+	m_smallBlades(type, Blades::BladesType::Small, transform, levitates),
+	m_type(type),
+	m_isLevitateOn(levitates)
 {
 	m_components.push_back(dynamic_cast<Object*>(&m_base));
 	m_components.push_back(dynamic_cast<Object*>(&m_leftWindow));
@@ -47,20 +48,35 @@ void Helicopter::Draw() const
 
 void Helicopter::UpdateThenDraw(const Camera& camera)
 {
-	bool levitate = false;
-	if (++m_levitatingCondition == 5)
+	if (m_isLevitateOn)
 	{
-		m_levitatingFactor += 1.0f;
-		m_levitatingCondition = 0;
-		levitate = true;
-	}
+		bool levitate = false;
+		if (++m_levitatingCondition == 5)
+		{
+			m_levitatingFactor += 1.0f;
+			m_levitatingCondition = 0;
+			levitate = true;
+		}
 
-	for (auto& obj : m_components)
-	{
-		if (levitate)
-			obj->GetTransform().GetPosition().y += sinf(glm::radians(m_levitatingFactor));
-		obj->UpdateThenDraw(camera);
+		for (auto& obj : m_components)
+		{
+			if (levitate)
+				obj->GetTransform().GetPosition().y += sinf(glm::radians(m_levitatingFactor));
+			obj->UpdateThenDraw(camera);
+		}
 	}
+	else
+	{
+		for (auto& obj : m_components)
+		{
+			obj->UpdateThenDraw(camera);
+		}
+	}
+}
+
+bool Helicopter::isLevitating() const
+{
+	return m_isLevitateOn;
 }
 
 Helicopter::Base::Base(Type type, const Transform& transform) :Object(transform)
@@ -117,7 +133,7 @@ void Helicopter::Window::Update(const Camera& camera)
 	texture->Bind(0);
 }
 
-Helicopter::Blades::Blades(Type type, BladesType bType, const Transform& transform) :Object(transform), m_type(bType)
+Helicopter::Blades::Blades(Type type, BladesType bType, const Transform& transform, bool isLevitating) :Object(transform), m_type(bType), m_isLevitating(isLevitating)
 {
 	switch (type)
 	{
@@ -129,8 +145,16 @@ Helicopter::Blades::Blades(Type type, BladesType bType, const Transform& transfo
 			break;
 		case BladesType::Small:
 			mesh = new Mesh("./resources/models/AlexHelicopter/helicopter_tail_blades_centered.obj");
-			this->transform.GetPosition().z -= 22.4f;
-			this->transform.GetPosition().y += 11.1f;
+			if (isLevitating)
+			{
+				this->transform.GetPosition().z -= 22.4f;
+				this->transform.GetPosition().y += 11.1f;
+			}
+			else
+			{
+				this->transform.GetPosition().z += 22.4f;
+				this->transform.GetPosition().y += 11.1f;
+			}
 			break;
 		default:
 			throw std::invalid_argument("Undefined Blades type");
@@ -165,13 +189,22 @@ void Helicopter::Blades::Update(const Camera& camera)
 	shader->Bind();
 	shader->Update(transform, camera);
 	texture->Bind(0);
-	if (m_type == BladesType::Big)
+	float speed;
+	if (m_isLevitating)
 	{
-		transform.GetRotation().y += 0.4f;
+		speed = 0.3f;
 	}
 	else
 	{
-		transform.GetRotation().x += 0.4f;
+		speed = 0.03f;
+	}
+	if (m_type == BladesType::Big)
+	{
+		transform.GetRotation().y += speed;
+	}
+	else
+	{
+		transform.GetRotation().x += speed;
 	}
 }
 

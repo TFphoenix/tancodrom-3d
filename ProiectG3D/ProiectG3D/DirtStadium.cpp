@@ -42,8 +42,8 @@ void DirtStadium::UpdateThenDraw(const Camera& camera)
 	// Tanks
 	if (m_incrementX)
 	{
-		m_tank1.GetTransform().GetPosition().x += 0.1f * m_reversal;
-		m_tank2.GetTransform().GetPosition().x -= 0.1f * m_reversal;
+		m_tank1.GetTransform().GetPosition().x += 0.2f * m_reversal;
+		m_tank2.GetTransform().GetPosition().x -= 0.2f * m_reversal;
 		if (m_reversal > 0)
 		{
 			if (m_tank1.GetTransform().GetPosition().x >= transform.GetPosition().x + 70.0f)
@@ -65,8 +65,8 @@ void DirtStadium::UpdateThenDraw(const Camera& camera)
 	}
 	else
 	{
-		m_tank1.GetTransform().GetPosition().z += 0.1f * m_reversal;
-		m_tank2.GetTransform().GetPosition().z -= 0.1f * m_reversal;
+		m_tank1.GetTransform().GetPosition().z += 0.2f * m_reversal;
+		m_tank2.GetTransform().GetPosition().z -= 0.2f * m_reversal;
 		if (m_reversal > 0)
 		{
 			if (m_tank1.GetTransform().GetPosition().z >= transform.GetPosition().z + 25.0f)

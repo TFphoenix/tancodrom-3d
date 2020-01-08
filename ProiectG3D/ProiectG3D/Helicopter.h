@@ -11,11 +11,12 @@ public:
 	};
 
 public:
-	Helicopter(Type type = CLASSIC, Transform transform = Transform());
+	Helicopter(Type type = CLASSIC, Transform transform = Transform(), bool levitates = false);
 
 	void Update(const Camera& camera) override;
 	void Draw() const override;
 	void UpdateThenDraw(const Camera& camera) override;
+	bool isLevitating() const;
 
 private:
 	class Base :public Object
@@ -56,13 +57,15 @@ private:
 		};
 
 	public:
-		Blades(Type type, BladesType bType, const Transform& transform);
+		Blades(Type type, BladesType bType, const Transform& transform, bool isLevitating);
 		friend Helicopter;
 
 		void Update(const Camera& camera) override;
 
 	private:
 		BladesType m_type;
+		bool m_isLevitating;
+
 	};
 
 	class Support :public Object
@@ -88,5 +91,6 @@ private:
 	float m_levitatingFactor = 0;
 	int m_levitatingCondition = 0;
 	Type m_type;
+	bool m_isLevitateOn = false;
 };
 
