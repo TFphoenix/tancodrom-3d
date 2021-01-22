@@ -51,7 +51,7 @@ void Helicopter::UpdateThenDraw(const Camera& camera)
 	if (m_isLevitateOn)
 	{
 		bool levitate = false;
-		if (++m_levitatingCondition == 5)
+		if (++m_levitatingCondition == 1)
 		{
 			m_levitatingFactor += 1.0f;
 			m_levitatingCondition = 0;
@@ -192,7 +192,7 @@ void Helicopter::Blades::Update(const Camera& camera)
 	float speed;
 	if (m_isLevitating)
 	{
-		speed = 0.3f;
+		speed = 0.5f;
 	}
 	else
 	{
